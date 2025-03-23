@@ -1,0 +1,363 @@
+/* 111550108 吳佳諭 第三次作業 11/1 */
+/* 111550108 Chia-Yu Wu The Third Homework 11/1 */
+#vid{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    object-fit: cover;
+    z-index: 199;
+    transform: translate(-50%, -50%);
+}
+.main{
+    flex-direction: column;
+    padding: 20px 100px 50px 100px;
+}
+#main{
+    display: none;
+    opacity: 0;
+    transition: opacity 2s;
+}
+#header{
+    display: none;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.title-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px;
+    animation: title_slide 4s forwards;
+}
+@keyframes title_slide{
+    0%{
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.title img{
+    margin-right: 30px;
+}
+.title-right{
+    display: flex;
+    flex-direction: column;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 60px;
+}
+.block{
+    margin-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.text{
+    width: 45%;
+}
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 50%;
+    background-size: cover;
+    border-radius: 100%;
+    position: relative;
+    animation: change-radius 18s ease-in-out infinite alternate,
+               change-position 20s linear infinite alternate;
+}
+.circle::before,
+.circle::after{
+    content: '';
+    position: absolute;
+    border-radius: 100%;
+}
+.circle::before {
+    height: 440px;
+    width: 483px;
+    /* border: 32px solid rgba(255,0,0, 0.3); */
+    border: 42px solid rgba(255,250,240, 0.5);
+    animation: change-radius 18s ease-in-out infinite alternate,
+                change-position 20s linear infinite alternate;
+}
+.circle::after {
+    height: 485px;
+    width: 525px;
+    /* border: 23px solid rgba(0, 0,255, 0.3); */
+    border: 22px solid rgba(255,250,240, 0.5);
+    animation: change-radius 18s ease-in-out infinite alternate,
+                change-position 20s linear infinite alternate;
+}
+@keyframes change-radius{
+    0%,
+    100%{
+        border-radius: 68% 55% 80% 50% / 68% 60% 70% 55%;
+    }
+    10%{
+        border-radius: 37% 63% 51% 49% / 30% 30% 70% 70%;
+    }
+    20%{
+        border-radius: 37% 63% 51% 49% / 37% 65% 35% 63%;
+    }
+    30%{
+        border-radius: 40% 60% 42% 58% / 41% 51% 49% 59%;
+    }
+    40%{
+        border-radius: 36% 64% 64% 36% / 64% 48% 52% 36%;
+    }
+    50%{
+        border-radius: 68% 55% 80% 50% / 68% 60% 70% 55%;
+    }
+    60%{
+        border-radius: 37% 63% 51% 49% / 30% 30% 70% 70%;
+    }
+    70%{
+        border-radius: 37% 63% 51% 49% / 37% 65% 35% 63%;
+    }
+    80%{
+        border-radius: 40% 60% 42% 58% / 41% 51% 49% 59%;
+    }
+    90%{
+        border-radius: 36% 64% 64% 36% / 64% 48% 52% 36%;
+    }
+}
+@keyframes change-radius-bord{
+    0%,
+    100%{
+        border-radius: 70% 56% 79% 49% / 69% 61% 69% 53%;
+    }
+    10%{
+        border-radius: 39% 65% 49% 47% / 32% 32% 69% 69%;
+    }
+    20%{
+        border-radius: 35% 65% 50% 50% / 40% 63% 36% 62%;
+    }
+    30%{
+        border-radius: 41% 62% 40% 57% / 40% 50% 48% 59%;
+    }
+    40%{
+        border-radius: 35% 65% 65% 37% / 62% 50% 51% 37%;
+    }
+    50%{
+        border-radius: 68% 53% 82% 51% / 69% 62% 71% 54%;
+    }
+    60%{
+        border-radius: 36% 62% 52% 48% / 30% 29% 73% 70%;
+    }
+    70%{
+        border-radius: 39% 63% 52% 49% / 37% 64% 34% 63%;
+    }
+    80%{
+        border-radius: 41% 61% 42% 57% / 42% 51% 50% 59%;
+    }
+    90%{
+        border-radius: 37% 64% 65% 36% / 65% 48% 53% 36%;
+    }
+}
+@keyframes change-position{
+    100% {
+        background-position: 100% 50%;
+    }
+}
+iframe{
+    margin-left: 250px;
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 30px;
+}
+
+.marquee-content {
+    display: block;
+    animation: marquee 60s linear infinite;
+    transform: translateX(0);
+}
+
+.marquee-content img {
+    height: 350px;
+    margin: 0 10px;
+    border-radius: 10%;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.popup{
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.popup-content{
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f1f1f1;
+    border-radius: 15px;
+    position: relative;
+    max-height: 600px;
+    overflow-y: auto;
+}
+.popup-content::-webkit-scrollbar{
+    display: none;
+}
+
+.popup-content-inner{
+    padding: 10px 40px;
+}
+.popup-content-inner h2{
+    margin-bottom: 5px;
+}
+.popup-content-inner h3{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.close-btn{
+    z-index: 50;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn{
+    position: relative;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    padding: 10px 20px;
+    z-index: 50;
+}
+#btn1{
+    background-color: #32b3ee;
+}
+#btn2{
+    background: #ffa33e;
+}
+.btn span{
+    position: relative;
+    z-index: 50;
+}
+.btn:before,
+.btn:after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.btn:before{
+    transform: translate3d(-100%, 0, 0);
+    background-color: #d61518;
+    transition: transform 300ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.btn:after{
+    transform: translate3d(100%, 0, 0);
+    transition: transform 300ms 300ms cubic-bezier(0.16, 0.73, 0.58, 0.62);
+}
+#btn1:after{
+    background-color: #ffa33e;
+}
+#btn2:after{
+    background-color: #32b3ee;
+}
+.btn:hover:before{
+    transform: translate3d(0, 0, 0);
+}
+.btn:hover:after{
+    transform: translate3d(0, 0, 0);
+}
+
+#marimba p{
+    padding: 0 20px 10px 20px;
+}
+.marimba-main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 40px;
+}
+.key{
+    width: 60px;
+    background-color: #7d241a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 30px;
+    padding-bottom: 10px;
+    color: white;
+    font-weight: bold;
+}
+.key:hover{
+    cursor: pointer;
+}
+#C{
+    height: 450px;
+}
+#D{
+    height: 410px;
+}
+#E{
+    height: 370px;
+}
+#F{
+    height: 340px;
+}
+#G{
+    height: 310px;
+}
+#A{
+    height: 280px;
+}
+#B{
+    height: 250px;
+}
+#CC{
+    height: 220px;
+}

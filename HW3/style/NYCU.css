@@ -1,0 +1,232 @@
+/* 111550108 吳佳諭 第三次作業 11/1 */
+/* 111550108 Chia-Yu Wu The Third Homework 11/1 */
+#vid{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    object-fit: cover;
+    z-index: 199;
+    transform: translate(-50%, -50%);
+}
+.main{
+    flex-direction: column;
+    padding: 20px 100px 50px 100px;
+}
+#main{
+    display: none;
+    opacity: 0;
+    transition: opacity 2s;
+}
+#header{
+    display: none;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px;
+    animation: title_slide 4s forwards;
+}
+@keyframes title_slide{
+    0%{
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.title img{
+    margin-right: 30px;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+.main-left{
+    padding: 0 20px;
+    margin-right: 50px;
+    height: 120px;
+
+    background-color: #FAFAFA;
+    border-radius: 20%;
+}
+.main-left a{
+    display: block;
+    margin: 10px 0;
+    color: gray;
+}
+
+.main-right{
+    flex: 1;
+}
+.main-right a{
+    text-decoration: underline;
+    color: #10098f;
+}
+.block{
+    margin-bottom: 50px;
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 30px;
+}
+
+.marquee-content {
+    display: block;
+    animation: marquee 60s linear infinite;
+    transform: translateX(0);
+}
+
+.marquee-content img {
+    height: 350px;
+    margin: 0 10px;
+    border-radius: 10%;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+#popup{
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.popup-content{
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 10px 40px;
+    border-radius: 15px;
+    position: relative;
+}
+.popup-content h3{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.ad-img{
+    float: left;
+    margin: 0 15px 0px 0;
+    width: 300px;
+}
+
+.close-btn{
+    z-index: 50;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+}
+
+.below-content{
+    display: none;
+    justify-content: flex-end;
+    position: relative;
+}
+.adv{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    background-color: #dcdcdc;
+    border: 2px solid black;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+.adv-content{
+    padding: 0 10px;
+}
+
+.footer{
+    display: flex;
+    justify-content: right;
+    font-size: 15px;
+    color: gray;
+}
+
+.angry-pet{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 199;
+}
+.angry{
+    display: flex;
+    justify-content: flex-end;
+}
+.angry-pet p{
+    color: #444;
+    display: none;
+    background-color: #ecf5ff;
+    border: 2px solid;
+    border-color: #c4e1ff;
+    border-radius: 10px;
+    line-height: 60px;
+    position: relative;
+    text-align:center;
+    padding: 0 20px;
+}
+.angry-pet p:before,
+.angry-pet p:after{
+    border: solid transparent;
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+.angry-pet p:after{
+    border-width: 10px 10px 0 10px;
+    border-top-color: #ecf5ff;
+    top: 60px;
+    right: 20px;
+}
+.angry-pet p:before{
+    border-width: 13px 13px 0 13px;
+    border-top-color: #c4e1ff;
+    position: absolute;
+    top: 60px;
+    right: 17px;
+}
+
+.eyes{
+    background-color: black;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    position: absolute;
+    transition-duration: 0.2s;
+}
+#left{
+    bottom: 68px;
+    right: 75px;
+}
+#right{
+    bottom: 68px;
+    right: 35px;
+}

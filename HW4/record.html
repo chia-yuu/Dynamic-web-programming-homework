@@ -1,0 +1,102 @@
+<!-- 111550108 吳佳諭 第4次作業 11/17 -->
+<!-- 111550108 Chia-Yu Wu The Fourth Homework 11/17-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game history</title>
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/record.css">
+</head>
+<body>
+    <script src="script/script.js"></script>
+    <audio id="bet-music" src="撲克牌/主介面.mp3" preload="auto" autoplay></audio>
+    <a href="index.html" style="color: black; z-index: 5;"><p class="title">Black Jack</p></a>
+    <div class="contact-info" id="contact-info">
+        <a href="index.html" class="contact-item" id="game-explain">
+            <span>返回遊戲</span>
+        </a>
+        <a href="record.html" class="contact-item">
+            <span>遊戲紀錄</span>
+        </a>
+        <a href="responser.html" class="contact-item">
+            <span>贊助商</span>
+        </a>
+    </div>
+    <button class="contact-btn" id="contact-btn">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+    </button>
+    <div class="main">
+        <h1>遊戲紀錄</h1>
+        <table style="border: 1px solid;">
+            <thead>
+                <th>局數</th>
+                <th>下注</th>
+                <th>玩家牌</th>
+                <th>莊家牌</th>
+                <th>玩家輸贏</th>
+                <th>餘額</th>
+            </thead>
+            <tbody id="record-table">
+            </tbody>
+        </table>
+        <p style="margin-bottom: 0;">*卡牌前的英文字母為花色，S為黑桃(spade)，H為紅心(heart)，D為方塊(diamond)，C為梅花(club)。</p>
+        <p style="margin-top: 5px;">例如，玩家牌為D8，表示玩家在該局拿到一張梅花8</p>
+    </div>
+    <div class="falling-line" id="falling-line"></div>
+    <script>
+        fill_table();
+        let is_open = false;
+        document.getElementById('contact-btn').addEventListener('click', function() {
+            const contact_info = document.getElementById('contact-info');
+            const button = this;
+            console.log("click");
+            if(!is_open){
+                is_open = true;
+                contact_info.style.display = 'flex';
+                button.classList.add('open');
+
+                const items = contact_info.children;
+                for(let i = 0; i < items.length; i++){
+                    setTimeout(() => {}, 80);
+                    items[i].style.opacity = '1';
+                    items[i].style.transform = 'translateY(0)';
+                    items[i].style.animation = 'slideIn 0.3s forwards';
+                }
+                setTimeout(() => {
+                    contact_info.style.display = 'flex';
+                }, 250);
+            }
+            else{
+                is_open = false;
+                const items = contact_info.children;
+                for(let i = 0; i < items.length; i++){
+                    setTimeout(() => {}, 80);
+                    items[i].style.opacity = '0';
+                    items[i].style.transform = 'translateY(20px)';
+                    items[i].style.animation = 'slideOut 0.3s forwards';
+                }
+                button.classList.remove('open');
+                // should wait the animation finish then it can have display none
+                setTimeout(() => {
+                    contact_info.style.display = 'none';
+                }, 250);
+            }
+        });
+
+        // background line
+        const n_line = 50;
+        let container = document.getElementById("falling-line");
+        for(let i=1;i<=n_line;i++){
+            let line = document.createElement("div");
+            line.classList.add("line");
+            line.style.setProperty('--left', `${i * (100 / n_line) + Math.random() * 5 - 5}%`);   // random line pos
+            line.style.setProperty('--ani-duration', 8 + Math.random() * 10 + 's');
+            line.style.setProperty('--ani-delay', -Math.random() * 10 + 's');
+            container.appendChild(line);
+        }
+    </script>
+</body>
+</html>

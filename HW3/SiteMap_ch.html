@@ -1,0 +1,75 @@
+<!-- 111550108 吳佳諭 第三次作業 11/1 -->
+<!-- 111550108 Chia-Yu Wu The Third Homework 11/1 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>網站導覽</title>
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/SiteMap.css">
+</head>
+<body>
+    <img id="my_cursor" src="img/angel_icon.png">
+    <img id="cursor_shadow" src="img/angel_icon.png">
+    <div class="header">
+        <div class="header-left">
+            <a href="index.html">佳諭戶曉</a>
+        </div>
+        <div class="header-right">
+            <a href="SiteMap_ch.html">網站導覽</a>
+            <a href="index.html">回首頁</a>
+            <a href="SiteMap_en.html">英文版</a>
+        </div>
+    </div>
+    <h1>網站導覽</h1>
+    <div class="main">
+        <div class="block">
+            <a href="index.html"><h3>首頁</h3></a>
+        </div>
+        <div class="block">
+            <a href="TNGS_ch.html"><h3>高中</h3></a>
+            <a href="TNGS_ch.html"><li>台南女中</li></a>
+            <a href="TNGSLife_ch.html"><li>南女生活</li></a>
+        </div>
+        <div class="block">
+            <a href="NYCU_ch.html"><h3>大學</h3></a>
+            <a href="NYCU_ch.html"><li>交大資工</li></a>
+            <a href="NYCULife_ch.html"><li>資工生活</li></a>
+            <a href="NYCULife_ch.html"><li>修課紀錄</li></a>
+        </div>
+        <div class="block">
+            <a href="percussion_ch.html"><h3>其他</h3></a>
+            <a href="percussion_ch.html"><li>打擊樂</li></a>
+            <a href="elements.html"><li>網站元素整理</li></a>
+        </div>
+    </div>
+    <script>
+        // control cursor
+        let cursor = document.getElementById('my_cursor');
+        let shadow = document.getElementById('cursor_shadow');
+        let pre_t = Date.now();
+        let pre_x = 0, pre_y = 0;
+        window.addEventListener("mousemove", function(event){
+            let t = Date.now();
+            let x = event.clientX, y = event.clientY;
+            let dx = x - pre_x, dy = y - pre_y;
+            let speed = Math.sqrt(dx*dx + dy*dy) / (t - pre_t);
+            cursor.style.left = `${x - 25}px`;
+            cursor.style.top = `${y - 25}px`;
+            shadow.style.left = `${x - 25}px`;
+            shadow.style.top = `${y - 25}px`;
+            if(speed > 2){
+                cursor.style.width = '200px';
+                cursor.style.height = '200px';
+            }
+            else{
+                cursor.style.width = '50px';
+                cursor.style.height = '50px';
+            }
+            pre_x = x;
+            pre_y = y;
+            pre_t = t;
+        });
+    </script>
+</body>
+</html>

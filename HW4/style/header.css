@@ -1,0 +1,56 @@
+/* 111550108 吳佳諭 第4次作業 11/17 */
+/* 111550108 Chia-Yu Wu The Fourth Homework 11/17 */
+*{
+    text-decoration: none;
+}
+
+body{
+    margin: 0 auto;
+    padding: 20px 40px;
+    background-color: #228B22;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 650px;
+}
+
+.header{
+    background-color: #add8e6;
+    display: flex;
+    position: fixed;
+    z-index: 100;
+    
+    height: 80px;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    padding: 0 80px;
+    
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.header a:hover{
+    text-decoration: underline;
+}
+.header-left{
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.header-left a{
+    color: white;
+}
+.header-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header-right a{
+    margin-right: 15px;
+    align-items: center;
+    color: white;
+}

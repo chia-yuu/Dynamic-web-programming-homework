@@ -1,0 +1,84 @@
+<!--111550108 吳佳諭 第II次作業10/11 -->
+<!-- 111550108 Chua-Yu Wu The Second Homework 10/11-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home page</title>
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body id="body">
+    <script src="script/index.js"></script>
+    <div class="main">
+        <div class="main-top" id="main-top">
+            <div class="intro">
+                <h2>簡介</h2>
+                <p>你可以輸入<img src="img/8.png" height="25px">個數字，以計算他們的最大值、最小值、中位數、是質數的數字、是阿姆斯壯數的數字和費波那契數，結果將以圖片的方式呈現。</p>
+            </div>
+            <div class="enter-number" id="enter-number">
+                <h2>開始計算！</h2>
+                <p class="inst">請輸入<img src="img/8.png" height="25px">個<img src="img/1.png" height="25px">~<img src="img/9.png" height="25px"><img src="img/9.png" height="25px"><img src="img/9.png" height="25px">的整數</p>
+                <form id="enter-number-form">
+                    <table>
+                        <tr>
+                            <script>
+                                for(let i=1;i<=8;i++){
+                                    document.writeln(`<th class="up-t-name"><label for='num${i}'>數字<img src="img/${i}.png" height="25px"></label></th>`);
+                                }
+                            </script>
+                        </tr>
+                        <tr>
+                            <script>
+                                for(let i=1;i<=8;i++){
+                                    document.writeln(`<th class="up-t-input"><input type='number' id='num${i}'></th>`);
+                                }
+                            </script>
+                        </tr>
+                    </table>
+                    <div class="btn">
+                        <button type="submit">計算</button>
+                        <button type="button" onclick="again_btn()">重新計算</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="main-bottom" id="main-bottom">
+            <h2>計算結果如下</h2>
+            <table class="compute-table">
+                <tr>
+                    <th class="bottom-t-name">最大值</th>
+                    <th id="mx" class="bottom-t-val"></th>
+                </tr>
+                <tr>
+                    <th class="bottom-t-name">最小值</th>
+                    <th id="mn" class="bottom-t-val"></th>
+                </tr>
+                <tr>
+                    <th class="bottom-t-name">中位數</th>
+                    <th id="mid" class="bottom-t-val"></th>
+                </tr>
+                <tr>
+                    <th class="bottom-t-name">質數</th>
+                    <th id="prime" class="bottom-t-val"></th>
+                </tr>
+                <tr>
+                    <th class="bottom-t-name">阿姆斯壯數</th>
+                    <th id="arms" class="bottom-t-val"></th>
+                </tr>
+                <tr>
+                    <th class="bottom-t-name">費波那契數</th>
+                    <th id="fib" class="bottom-t-val"></th>
+                </tr>
+            </table>
+            <div class="btn">
+                <button onclick="again_btn()">重新計算</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        get_input();
+    </script>
+</body>
+</html>

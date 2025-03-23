@@ -1,0 +1,312 @@
+/* 111550108 吳佳諭 第4次作業 11/17 */
+/* 111550108 Chia-Yu Wu The Fourth Homework 11/17 */
+body{
+    height: auto;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 1066px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    z-index: 5;
+}
+
+.title{
+    position: fixed;
+    top: 20px;
+    left: 50px;
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #FFD700;
+}
+
+/* marquee */
+.marquee{
+    position: relative;
+    height: 600px;
+    width: 1066px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+.marquee-img{
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0px;
+    border-radius: 20px;
+}
+@keyframes in{
+    0%{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes out{
+    0%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+.reference, .block{
+    z-index: 5;
+    background-color: #C6EBBE;
+    border-radius: 10px;
+    border: 4px #A9DBB8 solid;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.block{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* position: relative; */
+}
+
+.charactor-intro{
+    width: 100%;
+}
+.man{
+    padding-left: 20px;
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 400px;
+    background-size: cover;
+    border-radius: 100%;
+    position: relative;
+    animation: change-radius 20s ease-in-out infinite alternate,
+               change-position 20s linear infinite alternate;
+}
+.circle::before,
+.circle::after{
+    content: '';
+    position: absolute;
+    border-radius: 100%;
+}
+.circle::before {
+    height: 360px;
+    width: 363px;
+    /* border: 22px solid #6684e050; */
+    border: 22px solid rgba(255,250,240, 0.5);
+    animation: change-radius 20s ease-in-out infinite alternate,
+                change-position 20s linear infinite alternate;
+}
+.circle::after {
+    height: 365px;
+    width: 405px;
+    /* border: 12px solid #6684e050; */
+    border: 12px solid rgba(255,250,240, 0.5);
+    animation: change-radius 20s ease-in-out infinite alternate,
+                change-position 20s linear infinite alternate;
+}
+@keyframes change-radius{
+    0%,
+    100%{
+        border-radius: 68% 55% 80% 50% / 68% 60% 70% 55%;
+    }
+    10%{
+        border-radius: 37% 63% 51% 49% / 30% 30% 70% 70%;
+    }
+    20%{
+        border-radius: 37% 63% 51% 49% / 37% 65% 35% 63%;
+    }
+    30%{
+        border-radius: 40% 60% 42% 58% / 41% 51% 49% 59%;
+    }
+    40%{
+        border-radius: 36% 64% 64% 36% / 64% 48% 52% 36%;
+    }
+    50%{
+        border-radius: 68% 55% 80% 50% / 68% 60% 70% 55%;
+    }
+    60%{
+        border-radius: 37% 63% 51% 49% / 30% 30% 70% 70%;
+    }
+    70%{
+        border-radius: 37% 63% 51% 49% / 37% 65% 35% 63%;
+    }
+    80%{
+        border-radius: 40% 60% 42% 58% / 41% 51% 49% 59%;
+    }
+    90%{
+        border-radius: 36% 64% 64% 36% / 64% 48% 52% 36%;
+    }
+}
+@keyframes change-radius-bord{
+    0%,
+    100%{
+        border-radius: 70% 56% 79% 49% / 69% 61% 69% 53%;
+    }
+    10%{
+        border-radius: 39% 65% 49% 47% / 32% 32% 69% 69%;
+    }
+    20%{
+        border-radius: 35% 65% 50% 50% / 40% 63% 36% 62%;
+    }
+    30%{
+        border-radius: 41% 62% 40% 57% / 40% 50% 48% 59%;
+    }
+    40%{
+        border-radius: 35% 65% 65% 37% / 62% 50% 51% 37%;
+    }
+    50%{
+        border-radius: 68% 53% 82% 51% / 69% 62% 71% 54%;
+    }
+    60%{
+        border-radius: 36% 62% 52% 48% / 30% 29% 73% 70%;
+    }
+    70%{
+        border-radius: 39% 63% 52% 49% / 37% 64% 34% 63%;
+    }
+    80%{
+        border-radius: 41% 61% 42% 57% / 42% 51% 50% 59%;
+    }
+    90%{
+        border-radius: 37% 64% 65% 36% / 65% 48% 53% 36%;
+    }
+}
+@keyframes change-position{
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* menu */
+.contact-btn{
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+    z-index: 10;
+}
+.bar{
+    width: 30px;
+    height: 3px;
+    background-color: #FFD700;
+    margin: 2px 0;
+    transition: all 0.3s ease;
+}
+.contact-info{
+    position: fixed;
+    top: 70px;
+    right: 30px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+.contact-item{
+    display: flex;
+    align-items: center;
+    background-color: #FFD700;
+    border-radius: 30px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    cursor: pointer;
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+.contact-item:hover{
+    text-shadow: #FF1493 3px 0 30px;
+}
+.open .bar1{
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.open .bar2{
+    opacity: 0;
+}
+.open .bar3{
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* backgroun line */
+.falling-line{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+:root {
+    --left: 100px;
+    --line-blue: rgba(0, 123, 255, 1);
+    --line-height: 80px;
+    --ani-duration: 2s;
+    --ani-delay: 2s;
+}
+.line{
+    z-index: -1;
+    position: absolute;
+    top: -100px;
+    left: var(--left);
+    background: linear-gradient(to bottom, transparent, #FFD700);
+
+    content: '';
+    height: 80px;
+    width: 2px;
+    animation: fall var(--ani-duration) var(--ani-delay) ease-in-out forwards infinite;
+    overflow: hidden;
+}
+@keyframes fall {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+    20%{
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 1;
+    }
+}

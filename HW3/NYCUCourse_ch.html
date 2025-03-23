@@ -1,0 +1,203 @@
+<!-- 111550108 吳佳諭 第三次作業 11/1 -->
+<!-- 111550108 Chia-Yu Wu The Third Homework 11/1 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>交大課程</title>
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/NYCU.css">
+</head>
+<body>
+    <img id="my_cursor" src="img/magic-wand_icon.png">
+    <img id="cursor_shadow" src="img/magic-wand_icon.png">
+    <div class="header">
+        <div class="header-left">
+            <a href="index.html">佳諭戶曉</a>
+        </div>
+        <div class="header-right">
+            <a href="SiteMap_ch.html">網站導覽</a>
+            <a href="index.html">回首頁</a>
+            <a href="NYCUCourse_en.html">英文版</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="title">
+            <a href="https://www.nycu.edu.tw/nycu/ch/index"><img src="img/交大校徽.png" height="180px"></a>
+            <h1>交作業趕通宵--修課紀錄</h1>
+        </div>
+        <div class="content">
+            <div class="main-left">
+                <a href="NYCU_ch.html">我的大學--交大資工</a>
+                <a href="NYCULife_ch.html">多采多姿的大學生活</a>
+                <a href="NYCUCourse_ch.html">交作業趕通宵--修課紀錄</a>
+            </div>
+            <div class="main-right">
+                <p>這裡記錄我修過的課，包括一些筆記和修課心得。</p>
+                <h3><a href="CourseReview.html"># 線性代數 -- 紀虹名</a></h3>
+                <h3><a href="CourseReview.html"># 離散數學 -- 嚴力行</a></h3>
+                <h3><a href="CourseReview.html"># 演算法概論 -- 蔡錫鈞</a></h3>
+                <h3><a href="CourseReview.html"># 圖形理論導論 -- 李毅郎</a></h3>
+                <h3><a href="CourseReview.html"># 資料庫概論 -- 曾意儒</a></h3>
+                <h3><a href="CourseReview.html"># 計算機網路概論 -- 林靖茹</a></h3>
+                <h3><a href="CourseReview.html"># 機率 -- 謝秉鈞</a></h3>
+                <h3><a href="CourseReview.html"># 正規語言概論 -- 楊武</a></h3>
+                <h3><a href="CourseReview.html"># 人工智慧概論 -- 陳奕廷</a></h3>
+                <h3><a href="CourseReview.html"># 通訊原理與無線網路 -- 林靜茹</a></h3>
+                <h3><a href="CourseReview.html"># 計算機組織 -- 李毅郎</a></h3>
+                <h3><a href="CourseReview.html"># 密碼工程 -- 謝致仁</a></h3>
+                <h3><a href="CourseReview.html"># 計算機圖學概論 -- 林奕成</a></h3>
+                <h3><a href="CourseReview.html"># 機器學習概論 -- 林彥宇</a></h3>
+                <h3><a href="CourseReview.html"># 作業系統概論 -- 張立平</a></h3>
+            </div>
+        </div> 
+    </div>
+    <div class="angry-pet" id="angry-pet">
+        <p id="dia">給我分數！給我好多好多分數！</p>
+        <div class="angry" id="angry">
+            <img src="img/生氣圖案.png" height="130px" id="angry-img">
+            <div class="eyes" id="left"></div>
+            <div class="eyes" id="right"></div>
+        </div>
+    </div>
+    <script>
+        // control cursor
+        let cursor = document.getElementById('my_cursor');
+        let shadow = document.getElementById('cursor_shadow');
+        let pre_t = Date.now();
+        let pre_x = 0, pre_y = 0;
+        window.addEventListener("mousemove", function(event){
+            let t = Date.now();
+            let x = event.clientX, y = event.clientY;
+            let dx = x - pre_x, dy = y - pre_y;
+            let speed = Math.sqrt(dx*dx + dy*dy) / (t - pre_t);
+            cursor.style.left = `${x - 25}px`;
+            cursor.style.top = `${y - 25}px`;
+            shadow.style.left = `${x - 25}px`;
+            shadow.style.top = `${y - 25}px`;
+            if(speed > 2){
+                cursor.style.width = '200px';
+                cursor.style.height = '200px';
+            }
+            else{
+                cursor.style.width = '50px';
+                cursor.style.height = '50px';
+            }
+            pre_x = x;
+            pre_y = y;
+            pre_t = t;
+        });
+
+        // 詐騙訊息
+        window.onload = function(){
+            setTimeout(() => {
+                alert("恭喜你！\n\n我們已經選中你成為贏取新iPhone 16的首批少數用戶之一。\n\n此禮品專門授予台灣的忠實Google用戶\n\n點擊「確認」以確認");
+            }, 3000);
+        }
+
+        // angry pet
+        // show dialog
+        let content = ["給我分數！給我好多好多分數！", "對，就是你，趕快給我分數", "嗚嗚嗚不要扣我的分", "分數拿來吧你", "我也不想當分奴啊，誰叫大家都那麼卷"];
+        function show_dia(){
+            document.getElementById('dia').style.display = 'block';
+            setTimeout(() => {
+                let idx = Math.floor(Math.random() * 5);
+                document.getElementById('dia').innerHTML = content[idx];
+                document.getElementById('dia').style.display = 'none';
+            }, 3000);
+        }
+        setInterval(show_dia, 7000);
+        let idx = 1;
+        setInterval(() => {
+            document.getElementById('angry-img').src = `img/生氣圖案${idx}.png`;
+            idx = (idx+1)%3;
+        }, 1000);
+
+        // eyes move
+        document.addEventListener("mousemove", function(event){
+            let x = event.clientX, y = event.clientY;
+            const mx = 1450, my = 615;  // 100
+            const lb = 68, lr = 75, rb = 68, rr = 35;
+            const left = document.getElementById('left').style;
+            const right = document.getElementById('right').style;
+            // left
+            if(x < mx - 50){
+                // up
+                if(y < my - 50){
+                    left.bottom = `${lb+3}px`;
+                    left.right = `${lr+3}px`;
+                    right.bottom = `${rb+3}px`;
+                    right.right = `${rr+3}px`;
+                }
+                // down
+                else if(y > my + 20){
+                    left.bottom = `${lb-3}px`;
+                    left.right = `${lr+3}px`;
+                    right.bottom = `${rb-3}px`;
+                    right.right = `${rr+3}px`;
+                }
+                // mid
+                else{
+                    left.bottom = `${lb}px`;
+                    left.right = `${lr+3}px`;
+                    right.bottom = `${rb}px`;
+                    right.right = `${rr+3}px`;
+                }
+            }
+            // right
+            else if(x > mx + 50){
+                // up
+                if(y < my - 50){
+                    left.bottom = `${lb+3}px`;
+                    left.right = `${lr-3}px`;
+                    right.bottom = `${rb+3}px`;
+                    right.right = `${rr-3}px`;
+                }
+                // down
+                else if(y > my + 20){
+                    left.bottom = `${lb-3}px`;
+                    left.right = `${lr-3}px`;
+                    right.bottom = `${rb-3}px`;
+                    right.right = `${rr-3}px`;
+                }
+                // mid
+                else{
+                    left.bottom = `${lb}px`;
+                    left.right = `${lr-3}px`;
+                    right.bottom = `${rb}px`;
+                    right.right = `${rr-3}px`;
+                }
+            }
+            // middle
+            else{
+                // up
+                if(y < my - 50){
+                    left.bottom = `${lb+3}px`;
+                    left.right = `${lr}px`;
+                    right.bottom = `${rb+3}px`;
+                    right.right = `${rr}px`;
+                }
+                // down
+                else if(y > my + 20){
+                    left.bottom = `${lb-3}px`;
+                    left.right = `${lr}px`;
+                    right.bottom = `${rb-3}px`;
+                    right.right = `${rr}px`;
+                }
+                // mid
+                else{
+                    left.bottom = `${lb}px`;
+                    left.right = `${lr-1}px`;
+                    right.bottom = `${rb}px`;
+                    right.right = `${rr+1}px`;
+                }
+            }
+        });
+        // document.addEventListener("click", function(event){
+        //     let x = event.clientX, y = event.clientY;
+        //     console.log(`x = ${x}, y = ${y}`);
+        // });
+
+    </script>
+</body>
+</html>

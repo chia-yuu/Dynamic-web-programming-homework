@@ -1,0 +1,100 @@
+/* 111550108 吳佳諭 第三次作業 11/1 */
+/* 111550108 Chia-Yu Wu The Third Homework 11/1 */
+table{
+    width: 75%;
+    border-collapse: collapse;
+    margin: auto;
+    opacity: 0;
+    animation: table_slide 4s forwards;
+}
+@keyframes table_slide{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+td{
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.main{
+    padding: 0 100px 50px 100px;
+}
+
+.title{
+    font-size: 50px;
+    font-weight: bold;
+    margin: 10px 0;
+    animation: title_slide 4s forwards;
+}
+@keyframes title_slide{
+    0%{
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.discription{
+    margin: 10px 0 20px 0;
+    opacity: 0;
+    animation: table_slide 4s forwards;
+}
+li{
+    margin: 5px 0;
+}
+
+.water-mark{
+    position: absolute;
+    font-size: 25px;
+    color: black;
+    opacity: 0.1;
+    animation: mark_float 60s linear infinite;
+    animation-play-state: running;
+    z-index: 1;
+}
+.water-mark:hover{
+    animation-play-state: paused;
+}
+@keyframes mark_float{
+    0%{
+        transform: translate(539px, 189px);
+    }
+    10%{
+        transform: translate(-68px, 313px);
+    }
+    20%{
+        transform: translate(779px, 207px);
+    }
+    30%{
+        transform: translate(74px, 616px);
+    }
+    40%{
+        transform: translate(27px, 201px);
+    }
+    50%{
+        transform: translate(128px, -19px);
+    }
+    60%{
+        transform: translate(414px, 516px);
+    }
+    70%{
+        transform: translate(861px, 211px);
+    }
+    80%{
+        transform: translate(-34px, 570px);
+    }
+    90%{
+        transform: translate(260px, 549px);
+    }
+    100%{
+        transform: translate(539px, 189px);
+    }
+}

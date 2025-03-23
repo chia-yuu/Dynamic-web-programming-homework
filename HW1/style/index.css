@@ -1,0 +1,131 @@
+/* 111550108 吳佳諭 第一次作業 9/26 */
+/* 111550108 Chia-Yu Wu The First Homework 9/26 */
+.main{
+    display: flex;
+    padding: 50px 200px 50px 200px;
+}
+
+.main-left{
+    margin-right: 50px;
+}
+.main-left img{
+    border-radius: 50%;
+    animation: img_slide 2s forwards;
+}
+@keyframes img_slide {
+    0%{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.main-right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.right-top{
+    margin-top: 50px;
+    animation: right_top_slide 2s forwards;
+}
+@keyframes right_top_slide{
+    0%{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.title{
+    font-size: 50px;
+    font-weight: bold;
+}
+.right-top p{
+    margin: 0 0 10px 0;
+}
+
+.right-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.item{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.item1{
+    background-color: #5f3a72;
+    opacity: 0;
+    animation: fade1 1.5s 0.5s forwards;
+}
+@keyframes fade1{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.item1:hover{
+    background-color: #9F88AA;
+    width: 160px;
+    height: 160px;
+}
+.item2{
+    background-color: #10098f;
+    opacity: 0;
+    animation: fade2 1.5s 1.1s forwards;
+}
+@keyframes fade2{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.item2:hover{
+    background-color: #6F6BBB;
+    width: 160px;
+    height: 160px;
+}
+.item3{
+    background-color: #00a0ea;
+    opacity: 0;
+    animation: fade3 1.5s 1.7s forwards;
+}
+@keyframes fade3{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.item3:hover{
+    background-color: #66C6F2;
+    width: 160px;
+    height: 160px;
+}
+.item p{
+    margin: 5px 0;
+}
+.item-p1{
+    font-weight: bold;
+    font-size: 30px;
+}

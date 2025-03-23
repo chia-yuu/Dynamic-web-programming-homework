@@ -1,0 +1,86 @@
+/* 111550108 吳佳諭 第一次作業 9/26 */
+/* 111550108 Chia-Yu Wu The First Homework 9/26 */
+.main{
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 100px 50px 100px;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 50px;
+    animation: title_slide 4s forwards;
+}
+@keyframes title_slide{
+    0%{
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.title img{
+    margin-right: 30px;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+}
+.main-left{
+    padding: 0 20px;
+    margin-right: 50px;
+    height: 90px;
+
+    background-color: 	#FAFAFA	;
+    border-radius: 20%;
+}
+.main-left a{
+    display: block;
+    margin: 10px 0;
+    color: gray;
+}
+
+.main-right{
+    flex: 1;
+}
+.main-right a{
+    color: rgba(0, 0, 255, 0.8);
+}
+.block{
+    margin-bottom: 50px;
+}
+
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 30px;
+}
+
+.marquee-content {
+    display: block;
+    animation: marquee 60s linear infinite;
+    transform: translateX(0);
+}
+
+.marquee-content img {
+    height: 350px;
+    margin: 0 10px;
+    border-radius: 10%;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

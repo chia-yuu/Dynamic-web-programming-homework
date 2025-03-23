@@ -1,0 +1,14 @@
+/* 111550108 吳佳諭 第II次作業10/11 */
+/* 111550108 Chua-Yu Wu The Second Homework 10/11 */
+*{
+    text-decoration: none;
+}
+
+body{
+    margin: 0 auto;
+    padding: 50px 0 0 0;
+    background: linear-gradient(to right bottom, #FFE9D0 -6.87%, #F19ED2 26.54%, #B1AFFF 58.58%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

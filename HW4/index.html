@@ -1,0 +1,200 @@
+<!-- 111550108 吳佳諭 第4次作業 11/17 -->
+<!-- 111550108 Chia-Yu Wu The Fourth Homework 11/17-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HW4_111550108_吳佳諭</title>
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+    <script src="script/script.js"></script>
+    <audio id="playing-music" src="撲克牌/戰鬥.mp3" preload="auto"></audio>
+    <audio id="bet-music" src="撲克牌/主介面.mp3" preload="auto" autoplay></audio>
+    <audio id="button-sound" src="撲克牌/click button.mp3" preload="auto"></audio>
+    <audio id="money-sound" src="撲克牌/money.mp3" preload="auto"></audio>
+    <div class="start-block" id="start-block">
+        <h1>二十一點</h1>
+        <h3>遊戲說明</h3>
+        <p>21點，也就是black Jack，開局時玩家會拿到兩張「明牌」（牌面向上），莊家則是一張暗牌、一張明牌，玩家可以選擇拿牌、停牌、或增加賭注，若玩家的牌面點數總和大於21點則玩家爆掉！莊家贏得賭注。當玩家選擇停牌，則換莊家拿牌，若莊家點數大於21則玩家贏得1.5倍賭注。如果兩者皆小於21點則點數和較大者贏得此局，點數相同則為平局，拿回原本賭注。</p>
+        <button onclick="first_start(); play_sound()" class="start-btn">
+            開始遊戲
+            <span></span><span></span><span></span><span></span>
+        </button>
+    </div>
+    <p class="title">Black Jack</p>
+    <div class="contact-info" id="contact-info">
+        <a class="contact-item" id="game-explain">
+            <span>遊戲說明</span>
+        </a>
+        <a href="record.html" class="contact-item">
+            <span>遊戲紀錄</span>
+        </a>
+        <a href="responser.html" class="contact-item">
+            <span>贊助商</span>
+        </a>
+    </div>
+    <button class="contact-btn" id="contact-btn" onclick="play_sound()">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+    </button>
+    <div class="main" id="main">
+        <div class="main-left">
+            <p id="player-bet">賭注：0</p>
+            <p id="player-remain">餘額：1000</p>
+        </div>
+        <div class="main-mid">
+            <div class="dealer" id="dealer">
+                <p class="agent-name" id="agent-name-d">莊家</p>
+                <div class="dealer-sum" id="dealer-sum"></div>
+                <div class="cards" id="dealer-cards-low">
+                    <!-- by JS -->
+                </div>
+                <div class="cards" id="dealer-cards-up">
+                    <!-- by JS -->
+                </div>
+            </div>
+            <div class="player" id="player">
+                <div class="cards" id="player-cards-low">
+                    <!-- by JS -->
+                </div>
+                <div class="cards" id="player-cards-up">
+                    <!-- by JS -->
+                </div>
+                <div class="player-sum" id="player-sum"></div>
+                <div style="display: flex; flex-direction: row; align-items: center; position: relative;">
+                    <p class="agent-name" id="agent-name-p">玩家</p>
+                </div>
+            </div>
+        </div>
+        <div class="result" id="result">
+            <div class="block" id="result-block">
+                <!-- by JS -->
+            </div>
+        </div>
+        <div class="main-right">
+            <div class="bet-area" id="bet-area"></div>
+            <div class="playing-btns" id="playing-btns">
+                <button onclick="signal(); play_sound();" class="playing-btn" id="playing-btn-b">下注</button>
+                <button onclick="game('player'); play_sound()" class="playing-btn" id="playing-btn-t">拿牌</button>
+                <button onclick="game('dealer'); play_sound()" class="playing-btn" id="playing-btn-s">停牌</button>
+            </div>
+            <div id="give-card-btn-div">
+                <button onclick="game_start(); play_sound()" class="give-card-btn" id="give-card-btn">發牌</button>
+            </div>
+            <div class="bet-btns" id="bet-btns">
+                <button onclick="place_bet(10); play_money_sound()" class="bet-btn">
+                    <img src="撲克牌/心願幣.png">
+                    <span>10</span>
+                </button>
+                <button onclick="place_bet(50); play_money_sound()" class="bet-btn">
+                    <img src="撲克牌/極光幣.png">
+                    <span>50</span>
+                </button>
+                <button onclick="place_bet(100); play_money_sound()" class="bet-btn">
+                    <img src="撲克牌/小熊星座.png">
+                    <span>100</span>
+                </button>
+            </div>
+            <div class="restart-btn-div" id="restart-btn-div">
+                <button onclick="normal_start(); play_sound()" class="restart-btn" id="restart-btn">
+                    開始
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="falling-line" id="falling-line"></div>
+    <script>
+        let is_open = false;
+        document.getElementById('contact-btn').addEventListener('click', function() {
+            const contact_info = document.getElementById('contact-info');
+            const button = this;
+            console.log("click");
+            if(!is_open){
+                is_open = true;
+                contact_info.style.display = 'flex';
+                button.classList.add('open');
+
+                const items = contact_info.children;
+                for(let i = 0; i < items.length; i++){
+                    // items[i].style.animationDelay = `${i * 0.08}s`;
+                    setTimeout(() => {}, 80);
+                    items[i].style.opacity = '1';
+                    items[i].style.transform = 'translateY(0)';
+                    items[i].style.animation = 'slideIn 0.3s forwards';
+                }
+                setTimeout(() => {
+                    contact_info.style.display = 'flex';
+                }, 250);
+            }
+            else{
+                is_open = false;
+                const items = contact_info.children;
+                for(let i = 0; i < items.length; i++){
+                    // items[i].style.animationDelay = `${(items.length - 1 - i) * 0.08}s`;
+                    setTimeout(() => {}, 80);
+                    items[i].style.opacity = '0';
+                    items[i].style.transform = 'translateY(20px)';
+                    items[i].style.animation = 'slideOut 0.3s forwards';
+                }
+                button.classList.remove('open');
+                // should wait the animation finish then it can have display none
+                setTimeout(() => {
+                    contact_info.style.display = 'none';
+                }, 250);
+            }
+        });
+
+        document.getElementById('game-explain').addEventListener('click', function() {
+            // show start block
+            // document.getElementById("start-block").style.display = "flex";
+            // document.getElementById("main").style.display = "none";
+            // document.getElementById("restart-btn-div").style.display = "none";
+            // document.getElementById("give-card-btn-div").style.display = "none";
+            document.getElementById('main').classList.remove('visible');
+            setTimeout(() => {
+                document.getElementById("start-block").style.display = "flex";
+            }, 1000);
+            setTimeout(() => {
+                document.getElementById('start-block').classList.remove('hidden');
+                document.getElementById("main").style.display = "none";
+                document.getElementById("restart-btn-div").style.display = "none";
+                document.getElementById("give-card-btn-div").style.display = "none";
+            }, 1100);
+
+            // hide menu
+            is_open = false;
+            const contact_info = document.getElementById('contact-info');
+            const items = contact_info.children;
+            const button = document.getElementById('contact-btn');
+            for(let i = 0; i < items.length; i++){
+                setTimeout(() => {}, 80);
+                items[i].style.opacity = '0';
+                items[i].style.transform = 'translateY(20px)';
+                items[i].style.animation = 'slideOut 0.3s forwards';
+            }
+            button.classList.remove('open');
+            // should wait the animation finish then it can have display none
+            setTimeout(() => {
+                contact_info.style.display = 'none';
+            }, 250);
+        });
+
+        // background line
+        const n_line = 50;
+        let container = document.getElementById("falling-line");
+        for(let i=1;i<=n_line;i++){
+            // let line = document.getElementById(`line${i}`);
+            let line = document.createElement("div");
+            line.classList.add("line");
+            line.style.setProperty('--left', `${i * (100 / n_line) + Math.random() * 5 - 5}%`);   // random line pos
+            line.style.setProperty('--ani-duration', 8 + Math.random() * 10 + 's');
+            line.style.setProperty('--ani-delay', -Math.random() * 10 + 's');
+            // document.body.appendChild(line);
+            container.appendChild(line);
+        }
+    </script>
+</body>
+</html>

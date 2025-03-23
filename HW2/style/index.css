@@ -1,0 +1,96 @@
+/* 111550108 吳佳諭 第II次作業10/11 */
+/* 111550108 Chua-Yu Wu The Second Homework 10/11 */
+table{
+    border-collapse: collapse;
+}
+#enter-number-form{
+    padding: 0 20px;
+    justify-content: center;
+}
+th, tr{
+    border: 1px solid #000;
+    height: 40px;
+    width: 12%;
+}
+
+input{
+    width: 80%;
+    height: 70%;
+    border-style: hidden;
+}
+
+.up-t-name{
+    font-size: 20px;
+    font-weight: 500;
+    vertical-align: middle;
+    background-color: #FFEFDE;
+}
+.up-t-name label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.up-t-input{
+    background-color: white;
+}
+
+.main{
+    width: 85%;
+    padding: 20px 30px;
+    background-color: #FFFAF0;
+    border-radius: 10px;
+}
+
+p{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+}
+button{
+    padding: 0 10px;
+    margin: 10px 10px;
+    border-radius: 8px;
+    background-color: #87CEFA;
+    border-color: #87CEFA;
+    border-width: 1px;
+    border-style: solid;
+    color: white;
+    height: 40px;
+    width: 10%;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 40px;
+}
+button:hover{
+    background-color: rgb(125, 196, 240);
+}
+
+.bottom-t-name{
+    width: 5%;
+    height: 90px;
+    font-size: 20px;
+    font-weight: 500;
+    vertical-align: middle;
+    background-color: #FFEFDE;
+}
+.bottom-t-val{
+    font-size: 20px;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.main-bottom{
+    visibility: hidden;
+}
+.visible{
+    visibility: visible;
+    opacity: 1;
+}
+.main-bottom.visible{
+    opacity: 0;
+}

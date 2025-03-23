@@ -1,0 +1,180 @@
+<!-- 111550108 吳佳諭 第三次作業 11/1 -->
+<!-- 111550108 Chia-Yu Wu The Third Homework 11/1 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>佳諭戶曉</title>
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+    <img id="my_cursor" src="img/angel_icon.png">
+    <img id="cursor_shadow" src="img/angel_icon.png">
+    <video id="vid" autoplay muted playsinline>
+        <source src="img/77vid.mp4" type="video/mp4">
+        你的瀏覽器不支持影片標籤。
+    </video>
+    <div class="header" id="header">
+        <div class="header-left">
+            <a href="index.html">佳諭戶曉</a>
+        </div>
+        <div class="header-right">
+            <a href="SiteMap_ch.html">網站導覽</a>
+            <a href="index.html">回首頁</a>
+            <a href="index_en.html" onclick="new_window(event, 'index_en.html', 'index_en')">英文版</a>
+        </div>
+    </div>
+    <div class="main" id="main">
+        <div class="main-left">
+            <img src="img/大頭照.JPG" width="400px">
+        </div>
+        <div class="main-right">
+            <div class="right-top">
+                <p class="title">佳諭戶曉</p>
+                <p class="content">我是吳佳諭，畢業於台南女中，現在就讀交大資工三年級。在這個網站裡，你可以看到我的高中和大學生活～</p>
+                <p class="content">*元素整理在<a href="elements.html" style="color: blue; text-decoration: underline;">這裡</a>～～</p>
+            </div>
+            <div class="right-bottom">
+                <a href="TNGS_ch.html" onclick="new_tab(event, 'TNGS_ch.html', 'TNGS_ch')">
+                    <div class="item item1">
+                        <p class="item-p1">高中</p>
+                        <p class="item-p2">台南女中</p>
+                    </div>
+                </a>
+                <a href="NYCU_ch.html" onclick="new_tab(event, 'NYCU_ch.html', 'NYCU_ch')">
+                    <div class="item item2">
+                        <p class="item-p1">大學</p>
+                        <p class="item-p2">交大資工</p>
+                    </div>
+                </a>
+                <a href="percussion_ch.html" onclick="new_tab(event, 'percussion_ch.html', 'percussion_ch')">
+                    <div class="item item3">
+                        <p class="item-p1">其他</p>
+                        <p class="item-p2">打擊樂</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="contact-info" id="contact-info">
+        <a class="contact-item">
+            <img src="img/phone_icon.png" class="icon" height="25px">
+            <span>0968671562</span>
+        </a>
+        <a href="mailto: amberwu0411@gmail.com" class="contact-item">
+            <img src="img/gmail_icon.png" class="icon" height="25px">
+            <span>amberwu0411@gmail.com</span>
+        </a>
+        <a href="https://github.com/chia-yuu" class="contact-item" target="_blank">
+            <img src="img/github_icon.png" class="icon" height="25px">
+            <span>Chia-Yu</span>
+        </a>
+        <a href="https://www.linkedin.com/in/chia-yu-wu-7200592b9/" class="contact-item" target="_blank">
+            <img src="img/linkedin_icon.png" class="icon" height="25px">
+            <span>CHIA-YU WU</span>
+        </a>
+    </div>
+    <button class="contact-btn" id="contact-btn">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+    </button>
+    <script>
+        // pop up
+        function new_tab(event, url, page_name){
+            event.preventDefault();
+            window.open(url, page_name);
+        }
+        function new_window(event, url, page_name){
+            event.preventDefault();
+            window.open(url, page_name, 'width=650,height=700');
+        }
+
+        // control cursor
+        let cursor = document.getElementById('my_cursor');
+        let shadow = document.getElementById('cursor_shadow');
+        let pre_t = Date.now();
+        let pre_x = 0, pre_y = 0;
+        window.addEventListener("mousemove", function(event){
+            let t = Date.now();
+            let x = event.clientX, y = event.clientY;
+            let dx = x - pre_x, dy = y - pre_y;
+            let speed = Math.sqrt(dx*dx + dy*dy) / (t - pre_t);
+            cursor.style.left = `${x - 25}px`;
+            cursor.style.top = `${y - 25}px`;
+            shadow.style.left = `${x - 25}px`;
+            shadow.style.top = `${y - 25}px`;
+            if(speed > 2){
+                cursor.style.width = '200px';
+                cursor.style.height = '200px';
+            }
+            else{
+                cursor.style.width = '50px';
+                cursor.style.height = '50px';
+            }
+            pre_x = x;
+            pre_y = y;
+            pre_t = t;
+        });
+
+        // loading video
+        const video = document.getElementById("vid");
+        const content = document.getElementById("main");
+        const header = document.getElementById("header");
+        const connact_btn = document.getElementById("contact-btn");
+        const body = document.body;
+        video.addEventListener("ended", function() {
+            video.style.display = "none";
+            content.style.display = "flex";
+            content.style.opacity = 1;
+            header.style.display = "flex";
+            header.style.opacity = 1;
+            connact_btn.style.display = "flex";
+            connact_btn.style.opacity = 1;
+            body.style.backgroundColor = '#FFFAF0';
+        });
+
+        // contact
+        let is_open = false;
+        document.getElementById('contact-btn').addEventListener('click', function() {
+            const contact_info = document.getElementById('contact-info');
+            const button = this;
+
+            if(!is_open){
+                is_open = true;
+                contact_info.style.display = 'flex';
+                button.classList.add('open');
+
+                const items = contact_info.children;
+                for(let i = 0; i < items.length; i++){
+                    // items[i].style.animationDelay = `${i * 0.08}s`;
+                    setTimeout(() => {}, 80);
+                    items[i].style.opacity = '1';
+                    items[i].style.transform = 'translateY(0)';
+                    items[i].style.animation = 'slideIn 0.3s forwards';
+                }
+                setTimeout(() => {
+                    contact_info.style.display = 'flex';
+                }, 250);
+            }
+            else{
+                is_open = false;
+                const items = contact_info.children;
+                for(let i = 0; i < items.length; i++){
+                    // items[i].style.animationDelay = `${(items.length - 1 - i) * 0.08}s`;
+                    setTimeout(() => {}, 80);
+                    items[i].style.opacity = '0';
+                    items[i].style.transform = 'translateY(20px)';
+                    items[i].style.animation = 'slideOut 0.3s forwards';
+                }
+                button.classList.remove('open');
+                // should wait the animation finish then it can have display none
+                setTimeout(() => {
+                    contact_info.style.display = 'none';
+                }, 250);
+            }
+        });
+    </script>
+</body>
+</html>
