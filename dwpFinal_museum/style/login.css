@@ -1,0 +1,191 @@
+body{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.main{
+    height: 100vh;
+    min-width: 1024px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6rem 0 7rem;
+
+    background: linear-gradient(to right, #C7AD8F 20%, #22333B 20%);
+}
+
+/* main left */
+.main-left-container{
+    box-shadow: 0 0 10px black;
+    background-color: #EBE0D5;
+    border-radius: 10px;
+    height: 100%;
+    /* width: 600px; */
+    width: 47%;
+    min-width: 40%;
+}
+.main-left{
+    height: 95%;
+    padding: 25px 40px 0 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* login upper */
+.login-block h1{
+    margin: 15px 0;
+    color: #5E503F;
+}
+.white-line{
+    color: #5E503F;
+}
+.white-line::before{
+    content: "";
+    display: block;
+    width: 75px;
+    margin-bottom: 5px;
+    border-top: 1px solid #5E503F;
+}
+.msg{
+    color: #937F67;
+}
+
+/* login lower (form) */
+.form-block{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+label{
+    font-weight: bold;
+}
+input{
+    border: 1px solid #d3c9bf;
+    border-radius: 5px;
+    
+    height: 40px;
+    margin-bottom: 0;
+    padding: 8px 20px;
+}
+.form-btn{
+    width: 100%;
+    height: 56px;
+    background-color: black;
+    box-shadow: 0 0 5px #22333B;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.red-star{
+    color: red;
+}
+.error-msg{
+    display: none;
+    font-size: 18px;
+    color: #be3455;
+    margin-top: 0px;
+}
+
+/* main right */
+.main-right-container{
+    /* width: 600px; */
+    width: 47%;
+    min-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.main-right{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* comment block */
+.comment-block{
+    background-color: white;
+    box-shadow: 0 0 10px #d3c9bf;
+    height: 250px;
+    width: 75%;
+    margin-bottom: 30px;
+    border-radius: 18px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 0 30px;
+
+    transform: scale(0.9);
+    opacity: 0.8;
+}
+
+.comment-block img{
+    height: 80%;
+    /* max-height: 80%; */
+    max-width: 45%;
+    margin-right: 30px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.content h3{
+    margin-top: 40px;
+}
+.content p{
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* scrolling animation */
+:root {
+    --ani-time: 60s;
+    --half-ani-time: -30s;
+}
+@keyframes scroll1 {
+  0%{
+    transform: translateY(-50%);
+  }
+  100%{
+    transform: translateY(150%);
+  }
+}
+@keyframes scroll2{
+    0%{
+    transform: translateY(-150%);
+    }
+    100%{
+    transform: translateY(50%);
+    }
+}
+.first{
+    animation: scroll1 var(--ani-time) linear infinite;
+}
+.second{
+    animation: scroll2 var(--ani-time) linear infinite;
+    animation-delay: var(--half-ani-time);
+}
+.active{
+    transform: scale(1.1);
+    opacity: 1;
+    transition: all 1s;
+}

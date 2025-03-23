@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Game</title>
+    <script src="homepage_kirby.js" defer></script>
+
+    <link rel="stylesheet" href="homepage.css">
+</head>
+
+<body>
+    <div id="header">
+        <div id="greeting"></div>
+        <button id="logoutButton" style="background: none; border: none; margin-right: 50px; cursor: pointer;">
+            <img src="homepage_images/sign-out.png" alt="Logout" style="width: 40px; height: 40px;">
+        </button>
+    </div>
+    <canvas id="gameCanvas" style="left:0%;top:0%; "></canvas>
+    <img id="playerGif" src="character/fly.gif" class="fall_animation"
+        style="position: absolute; z-index: 999; height:200px; width:200px;" />
+    <div id="lobby">
+        <div id="Renaissance" class="painting">
+            <img src="homepage_images/p1.png" />
+            <div id="exb_name">renaissance</div>
+        </div>
+        <div id="Romance" class="painting">
+            <img src="homepage_images/painting2.png" />
+            <div id="exb_name">romance</div>
+        </div>
+        <div id="Modern" class="painting">
+            <img src="homepage_images/painting3.jpg" />
+            <div id="exb_name">modern</div>
+        </div>
+        <div id="npc_dog" class="dailog">
+            <img src="homepage_images/dog_npc.png" />
+            <div id="dailog">Burf!</div>
+        </div>
+        <div id="collection" class="painting">
+            <img src="homepage_images/collect.jpeg" />
+            <div id="exb_name">collection</div>
+        </div>
+    </div>
+    <form id="paintingForm" action="exb.php" method="POST" style="display: none;">
+        <input type="hidden" id="paintingName" name="table" value="">
+        <input type="hidden" id="user_ID" name="user_ID" value="">
+    </form>
+    <div id="searchBox" style="display: none; position: absolute; z-index: 1000;">
+        <img src="homepage_images/search_box.png">
+        <p>Burf! welcome!</p>
+        <input type="text" id="searchInput" placeholder="Search artworks..." />
+        <button id="searchButton" onclick=submitSearch()>Search</button>
+        <button id="cancelButton" onclick=cancelSearch() style=" position: relative;
+        z-index: 1;
+        padding: 5px 10px;
+        font-size: 16px;
+        cursor: pointer;">Cancel</button>
+    </div>
+    <form id="searchingForm" action="search.php" method="POST" style="display: none;">
+        <input type="hidden" id="keyword" name="keyword" value="">
+        <input type="hidden" id="user_ID2" name="user_ID" value="">
+    </form>
+</body>
+
+</html>

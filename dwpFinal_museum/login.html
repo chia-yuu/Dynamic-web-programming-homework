@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>登入帳號</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/login.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="main-left-container">
+            <div class="main-left">
+                <div class="left-upper">
+                    <h1>MY COLLECTION</h1>
+                    <h2 class="white-line">SIGN IN</h2>
+                    <p class="msg">Please sign in to select your favourites<br>or leave a comment on your most beloved
+                        artworks.</p>
+                </div>
+                <form method="post" action="utils/login.php">
+                    <div class="form-block">
+                        <label for="email" class="form-label">Email<span class="red-star">*</span></label>
+                        <input type="email" id="email" name="email" class="form-input"
+                            placeholder="example123@gmail.com">
+                    </div>
+                    <div class="form-block">
+                        <label for="password" class="form-label">Password<span class="red-star">*</span></label>
+                        <input type="password" id="password" name="password" class="form-input" placeholder="********">
+                    </div>
+                    <p class="error-msg" id="wrong-pw">Incorrect password. Please try again.</p>
+                    <p class="error-msg" id="no-account">The account does not exist. <a href="register.html"
+                            style="color: black; font-weight: bold;">Create</a> an account!</p>
+                    <p class="error-msg" id="no-input">Please enter your email and password.</p>
+                    <p class="error-msg" id="account-exist">The account already exists. Please login.</p>
+                    <input type="submit" class="form-btn" value="LOGIN">
+                    <p class="form-bottom">Don't have an account yet? <a href="register.html"
+                            style="color: black; font-weight: bold;">Register</a> now.</p>
+                </form>
+            </div>
+        </div>
+        <div class="main-right-container">
+            <div class="main-right first" id="right-first">
+                <!-- fill by js -->
+            </div>
+            <div class="main-right second" id="right-second">
+                <!-- fill by js -->
+            </div>
+        </div>
+    </div>
+    <script src="script/login.js"></script>
+</body>
+
+</html>
+
+<!-- 
+idea
+- login with google
+- click on img can go to that page
+login.html, register.html
+login.css, login.js
+login.php, collection.php
+-->
+
+<!--        ######## USER ########
+name        account                     password
+amber       amberwu0411@gmail.com       amber930411
+wingting    wingting013@gmail.com       wingting
+paper       ppr921@gmail.com            prprprpr
+-->

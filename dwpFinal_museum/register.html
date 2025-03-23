@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>註冊帳號</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/login.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="main-left-container">
+            <div class="main-left">
+                <div class="left-upper">
+                    <h1>MY COLLECTION</h1>
+                    <h2 class="white-line">REGISTER</h2>
+                    <p class="msg">Create your account to select your favourites<br>or leave a comment on your most
+                        beloved artworks.</p>
+                </div>
+                <form method="post" action="utils/register.php">
+                    <div class="form-block">
+                        <label for="name" class="form-label">Name<span class="red-star">*</span></label>
+                        <input id="name" class="form-input" name="name" placeholder="John doe">
+                    </div>
+                    <div class="form-block">
+                        <label for="email" class="form-label">Email<span class="red-star">*</span></label>
+                        <input type="email" id="email" class="form-input" name="email"
+                            placeholder="example123@gmail.com">
+                    </div>
+                    <div class="form-block">
+                        <label for="password" class="form-label">Password<span class="red-star">*</span></label>
+                        <input type="password" id="password" class="form-input" name="password" placeholder="********">
+                    </div>
+                    <p class="error-msg" id="no-input">Please enter your email and password.</p>
+                    <p class="error-msg" id="account-exist">The account already exists.</p>
+                    <input type="submit" class="form-btn" value="REGISTER">
+                    <p class="form-bottom">Already have an account? <a href="login.html"
+                            style="color: black; font-weight: bold;">Login</a> now.</p>
+                </form>
+            </div>
+        </div>
+        <div class="main-right-container">
+            <div class="main-right first" id="right-first">
+                <!-- fill by js -->
+                <!-- <div class="comment-block">
+                    <img src="https://sammlung.staedelmuseum.de/images/994/sieneser-meister-um-1430-abduction-helen-1003--thumb-lg.jpg">
+                    <div class="content">
+                        <h3>Paper</h3>
+                        <p>"Like it like it like it. Raelly like it like it like it. It is so beautiful. I like it like it like it like it so much."</p>
+                    </div>
+                </div> -->
+            </div>
+            <div class="main-right second" id="right-second">
+                <!-- fill by js -->
+            </div>
+        </div>
+        <script src="script/login.js"></script>
+    </div>
+</body>
+
+</html>
